@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -35,7 +35,7 @@ namespace TestLetAppTest
             };
             Testlet testlet = new Testlet("1", testLetItems);
             var result = testlet.Randomize();
-            var filterPretest = result?.Where(x => x.ItemType == ItemTypeEnum.Pretest)?.Take(2).ToList();
+            var filterPretest = result?.Take(2).ToList();
             Assert.IsNotNull(filterPretest);
             Assert.IsTrue(filterPretest.Count == 2);
             Assert.IsTrue(filterPretest.All(x => x.ItemType == ItemTypeEnum.Pretest));
@@ -64,7 +64,7 @@ namespace TestLetAppTest
             };
             Testlet testlet = new Testlet("1", testLetItems);
             var result = testlet.Randomize();
-            var filterPretest = result?.Where(x => x.ItemType == ItemTypeEnum.Pretest)?.Take(2).ToList();
+            var filterPretest = result?.Take(2).ToList();
             Assert.IsNotNull(filterPretest);
             Assert.IsTrue(filterPretest.Count == 2);
             Assert.IsTrue(filterPretest.All(x => x.ItemType == ItemTypeEnum.Pretest));
@@ -92,7 +92,7 @@ namespace TestLetAppTest
             };
             Testlet testlet = new Testlet("1", testLetItems);
             var result = testlet.Randomize();
-            var filterPretest = result?.Where(x => x.ItemType == ItemTypeEnum.Pretest)?.Take(2).ToList();
+            var filterPretest = result?.Take(2).ToList();
             Assert.IsNotNull(filterPretest);
             Assert.IsTrue(filterPretest.Count == 2);
             Assert.IsTrue(filterPretest.All(x => x.ItemType == ItemTypeEnum.Pretest));
@@ -121,8 +121,6 @@ namespace TestLetAppTest
             };
             Testlet testlet = new Testlet("1", testLetItems);
             var result = testlet.Randomize();
-            var filterPretest = result?.Where(x => x.ItemType == ItemTypeEnum.Pretest)?.Take(2).ToList();
-            Assert.IsTrue(filterPretest.Count == 0);
             Assert.IsTrue(testLetItems.All(x => result.Contains(x)));
             //Test Randomness
             var inputids = string.Join(",", testLetItems.Select(x => x.ItemId));
