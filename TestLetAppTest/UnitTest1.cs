@@ -44,6 +44,7 @@ namespace TestLetAppTest
             var inputids = string.Join(",", testLetItems.Select(x => x.ItemId));
             var resultids = string.Join(",", result.Select(x => x.ItemId));
             Assert.AreNotEqual(inputids, resultids);
+            Assert.AreNotEqual(inputids, resultids);
         }
 
         [TestMethod]
